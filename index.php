@@ -41,6 +41,7 @@ $tanggal_hari_ini = date('Y-m-d');
         </form>
 
         <button onclick="window.location.href='daily_attendance.php'" style="margin-left: 10px;">Lihat Absensi Harian</button>
+        <button onclick="window.location.href='semester_report.php'" style="margin-left: 10px;">Rekap Semester</button>
     </div>
 
     <table border="1">

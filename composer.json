@@ -1,0 +1,6 @@
+{
+    "name": "rpl-06/absensi",
+    "require": {
+        "phpoffice/phpspreadsheet": "^4.1"
+    }
+}
