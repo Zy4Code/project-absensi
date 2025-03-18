@@ -69,18 +69,19 @@ $result = $stmt->get_result();
     <meta charset="UTF-8">
     <title>Rekap Absensi Semester</title>
     <link rel="stylesheet" href="src/css/page_index.css">
+    <link rel="stylesheet" href="src/css/page_report.css">
 </head>
 <body>
     <h2>Rekap Absensi Semester</h2>
     
-    <div style="margin-bottom: 20px;">
-        <form method="GET" action="semester_report.php" style="display: inline-block;">
+    <div class="filter-container">
+        <form method="GET" action="semester_report.php" style="display: flex; gap: 10px; align-items: center;">
             <select name="tahun">
                 <?php
                 $current_year = date('Y');
                 for($i = $current_year - 1; $i <= $current_year + 1; $i++) {
                     $selected = ($i == $tahun) ? 'selected' : '';
-                    echo "<option value='$i' $selected>$i</option>";
+                    echo "<option value='$i' $selected>Tahun $i</option>";
                 }
                 ?>
             </select>
@@ -91,13 +92,13 @@ $result = $stmt->get_result();
             <button type="submit">Tampilkan</button>
         </form>
         
-        <form method="POST" action="export_excel.php" style="display: inline-block; margin-left: 10px;">
+        <form method="POST" action="export_excel.php" id="export-form">
             <input type="hidden" name="tahun" value="<?php echo $tahun; ?>">
             <input type="hidden" name="semester" value="<?php echo $semester; ?>">
             <button type="submit">Export to Excel</button>
         </form>
         
-        <button onclick="window.location.href='index.php'" style="margin-left: 10px;">Kembali</button>
+        <button class="btn-kembali" onclick="window.location.href='index.php'">Kembali</button>
     </div>
 
     <table border="1">
@@ -105,11 +106,10 @@ $result = $stmt->get_result();
             <tr>
                 <th>NISN</th>
                 <th>Nama Siswa</th>
-                <th>Hadir</th>
                 <th>Sakit</th>
                 <th>Izin</th>
                 <th>Alpha</th>
-                <th>Total Hari</th>
+                <!-- <th>Total Hari</th> -->
             </tr>
         </thead>
         <tbody>
@@ -120,11 +120,10 @@ $result = $stmt->get_result();
                     echo "<tr>
                         <td>{$row['NISN']}</td>
                         <td>{$row['Nama']}</td>
-                        <td>{$row['Hadir']}</td>
                         <td>{$row['Sakit']}</td>
                         <td>{$row['Izin']}</td>
                         <td>{$row['Alpha']}</td>
-                        <td>{$total}</td>
+                        
                     </tr>";
                 }
             } else {

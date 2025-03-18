@@ -1,0 +1,86 @@
+/* Container untuk form */
+.filter-container {
+    /* background-color: #f8f9fa; */
+    padding: 20px;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* Styling untuk select (dropdown) */
+select {
+    padding: 8px 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+select:hover {
+    border-color: #4a90e2;
+}
+
+select:focus {
+    outline: none;
+    border-color: #4a90e2;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Styling untuk button */
+button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+/* Button Tampilkan */
+button[type="submit"] {
+    background-color: #4a90e2;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+/* Button Export */
+button[type="submit"][form="export-form"] {
+    background-color: #28a745;
+    color: white;
+}
+
+button[type="submit"][form="export-form"]:hover {
+    background-color: #218838;
+}
+
+/* Button Kembali */
+.btn-kembali {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-kembali:hover {
+    background-color: #5a6268;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .filter-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    select, button {
+        width: 100%;
+    }
+}
